@@ -38,10 +38,11 @@ def change_phone(name, old_phone, new_phone):
     record = users.get(name)
     old_phone = Phone(old_phone)
     new_phone = Phone(new_phone)
-
-    for tel in record.phones:
-        if tel.value == old_phone.value:
-            record.edit_phone(tel, new_phone)
+    tel = record.get_phone(old_phone)
+    if tel:
+        record.edit_phone(tel, new_phone)
+    else:
+        return f'Phone not found'
     return f'Done!'
 
 
