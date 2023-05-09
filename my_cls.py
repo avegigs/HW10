@@ -80,8 +80,12 @@ class Record:
     # def get_name(self):
     #     return self.name.value
 
-    # def get_phones(self):
-    #     return [phone.value for phone in self._phones]
+    def get_phone(self, old_phone):
+        for phone in self.phones:
+            if phone.value == old_phone.value:
+                return phone
+            else:
+                return None
 
 
 # phone1 = Phone('11')
